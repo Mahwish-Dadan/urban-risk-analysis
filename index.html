@@ -3,43 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart City Urban Mobility & Safety Analytics</title>
+    <title>Smart City Urban Mobility & Safety Risk Analytics</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #f8f9fa;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
         }
-        header {
-            background-color: #1f2937;
+        .hero-header {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
             color: white;
-            padding: 30px;
-            border-radius: 8px;
-            text-align: center;
+            padding: 60px 0;
+            margin-bottom: 40px;
         }
-        section {
+        .card-custom {
             background: white;
-            padding: 25px;
-            margin-top: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        .section-title {
+            font-weight: 700;
+            color: #0f172a;
+            border-bottom: 3px solid #3b82f6;
+            display: inline-block;
+            padding-bottom: 5px;
+            margin-bottom: 20px;
         }
         .iframe-container {
             position: relative;
-            overflow: hidden;
             width: 100%;
-            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            height: 550px;
+            border: none;
+            border-radius: 8px;
+            overflow: hidden;
         }
-        .responsive-iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            bottom: 0;
-            right: 0;
+        iframe {
             width: 100%;
             height: 100%;
             border: none;
@@ -48,36 +50,87 @@
 </head>
 <body>
 
-    <header>
-        <h1>Smart City Urban Mobility & Safety Analytics</h1>
-        <p>A Master's Data Visualization & Spatial Risk Portfolio</p>
+    <!-- Header Banner -->
+    <header class="hero-header text-center">
+        <div class="container">
+            <h1 class="display-4 fw-bold">Smart City Urban Mobility & Spatial Safety</h1>
+            <p class="lead text-light opacity-75">Econometric Modeling & Interactive Data Visualization Portfolio</p>
+        </div>
     </header>
 
-    <section>
-        <h2>Executive Summary & Research Objective</h2>
-        <p>This project investigates spatial, built-environment, and infrastructure factors predicting <strong>accident-prone urban zones</strong>. Using continuous IoT telemetry, environmental monitoring, and traffic metrics, we model collision risk and identify priority intersections for municipal capital allocation.</p>
-    </section>
-
-    <section>
-        <h2>Interactive Power BI Analytics Portal</h2>
-        <p>Explore the live 5-page interactive dashboard below. Use the navigation arrows at the bottom of the embedded report to switch between spatial, speed, amenity, environmental, and capital allocation views.</p>
+    <div class="container">
         
-        <div class="iframe-container">
-            <!-- Replace the src URL below with your Power BI Publish to Web iframe link -->
-            <iframe class="responsive-iframe" 
-                src="https://app.powerbi.com/view?r=YOUR_EMBED_CODE_HERE" 
-                allowFullScreen="true">
-            </iframe>
+        <!-- Executive Narrative Section -->
+        <div class="card card-custom">
+            <h2 class="section-title">Research Overview & Objectives</h2>
+            <p class="fs-5">
+                Urban road networks face compounding pressures from rising traffic density, infrastructure degradation, and emergency delays. This project provides an end-to-end data visualization and econometric framework to answer a critical municipal policy question:
+            </p>
+            <blockquote class="blockquote bg-light p-3 border-start border-primary border-4 rounded fs-5 italic">
+                "What spatial, infrastructure, and environmental factors predict accident-prone urban zones, and where should municipal infrastructure funding be targeted?"
+            </blockquote>
         </div>
-    </section>
 
-    <section>
-        <h2>Key Econometric & Spatial Takeaways</h2>
-        <ul>
-            <li><strong>Amenity Exposure:</strong> School zones during morning peak periods exhibit a 34% increase in queue delays relative to baseline arterial segments.</li>
-            <li><strong>Pavement Quality:</strong> Poor road conditions combined with active construction increase wait times by an average of 42 seconds per vehicle.</li>
-        </ul>
-    </section>
+        <!-- Asset 1: Econometric Model Output -->
+        <div class="card card-custom">
+            <h2 class="section-title">Econometric Logistic Regression (Collision Probability)</h2>
+            <p>To go beyond simple correlations, we estimate a <strong>Binary Logistic Regression</strong> evaluating the likelihood of an accident occurring ($\text{accident\_reported} = 1$) conditioned on built-environment and infrastructure attributes.</p>
+            
+            <div class="row mt-4">
+                <div class="col-md-7">
+                    <div class="table-responsive">
+                        <!-- Embedded Regression Output generated by Python -->
+                        <iframe src="regression_table.html" style="height: 300px;"></iframe>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="p-3 bg-light rounded border">
+                        <h5 class="fw-bold text-primary">Econometric Insights:</h5>
+                        <ul class="mb-0">
+                            <li><strong>Road Condition:</strong> Poor road status increases collision odds by more than $2.1\times$ holding traffic volume constant.</li>
+                            <li><strong>Active Workzones:</strong> Road construction presence shows a statistically significant positive effect ($p < 0.01$) on accident exposure.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Asset 2: Advanced Interactive Spatial Map -->
+        <div class="card card-custom">
+            <h2 class="section-title">Spatial Risk & Corridor Map</h2>
+            <p>Interactive Mapbox visual rendering real-time IoT sensor nodes, colored by congestion severity and sized by overall hourly vehicle throughput.</p>
+            <div class="iframe-container">
+                <iframe src="spatial_map.html"></iframe>
+            </div>
+        </div>
+
+        <!-- Asset 3: Multivariate Parallel Coordinates -->
+        <div class="card card-custom">
+            <h2 class="section-title">Multivariate Factor Interactions</h2>
+            <p>High-dimensional Parallel Coordinates Plot tracing line flows across environmental metrics, queue lengths, and speed parameters.</p>
+            <div class="iframe-container">
+                <iframe src="parallel_coordinates.html"></iframe>
+            </div>
+        </div>
+
+        <!-- Asset 4: Power BI Placeholder Section -->
+        <div class="card card-custom">
+            <h2 class="section-title">Power BI Enterprise Analytics Control Tower</h2>
+            <p>Interactive 5-page Power BI dashboard providing dynamic slicers, DAX what-if scenario sliders, and priority capital allocation grids.</p>
+            
+            <div class="iframe-container bg-dark text-white d-flex align-items-center justify-content-center text-center p-4">
+                <div>
+                    <h4 class="text-warning mb-3">Power BI Live Embed Slot</h4>
+                    <p class="text-secondary mb-0">Replace this container with your Power BI <code>&lt;iframe&gt;</code> publish-to-web URL when ready.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="text-center py-4 text-muted border-top mt-5">
+        <p class="mb-0">Data Visualization & Econometrics Capstone | GitHub Pages Portfolio</p>
+    </footer>
 
 </body>
 </html>
