@@ -112,12 +112,40 @@
                 <iframe src="parallel_coordinates.html"></iframe>
             </div>
         </div>
-        <!-- Asset 4: Non-Linear Risk Curve -->
+        <!-- Asset 5: Non-Linear Risk Curve -->
         <div class="card card-custom">
             <h2 class="section-title">Non-Linear Environmental Impact & Delay Dynamics</h2>
-            <p>Evaluating non-linear operational friction by plotting <strong>Rainfall Intensity (mm)</strong> against <strong>Average Wait Time</strong>, segmented by collision occurrence and overlaid with Ordinary Least Squares (OLS) trendlines.</p>
-            <div class="iframe-container">
-                <iframe src="speed_risk_curve.html"></iframe>
+            <p>Evaluating non-linear operational friction by plotting <strong>Rainfall Intensity (mm)</strong> against <strong>Average Wait Time</strong>, segmented by collision occurrence (<code>accident_reported = 1</code>) and overlaid with Ordinary Least Squares (OLS) trendlines.</p>
+            
+            <div class="row mt-4">
+                <div class="col-md-8">
+                    <div class="iframe-container" style="height: 480px;">
+                        <iframe src="speed_risk_curve.html"></iframe>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-3 bg-light rounded border h-100">
+                        <h5 class="fw-bold text-primary mb-3">Key Econometric Insights:</h5>
+                        <ul class="mb-0 ps-3">
+                            <li class="mb-3">
+                                <strong>Severe Wait Time Outliers (Accident Clustering):</strong> 
+                                Delays above 300 seconds (peaking near 1,200s) consist almost exclusively of confirmed accident events (bright yellow markers), proving that collisions cause extreme tail-risk operational delays rather than routine weather slowdowns.
+                            </li>
+                            <li class="mb-3">
+                                <strong>Dry-Weather Sensitivity ($0\text{ mm}$ Baseline):</strong> 
+                                A massive vertical concentration of delays occurs at $0\text{ mm}$ rainfall. This indicates that baseline urban traffic volume and corridor structural capacity—not precipitation alone—drive the bulk of everyday congestion[cite: 1].
+                            </li>
+                            <li class="mb-3">
+                                <strong>Near-Zero Baseline OLS Slope:</strong> 
+                                The fitted red OLS regression line remains nearly flat across rainfall levels[cite: 1]. Precipitation operates as a non-linear volatility catalyst during active collisions rather than a steady linear multiplier on standard wait times[cite: 1].
+                            </li>
+                            <li>
+                                <strong>Policy Action:</strong> 
+                                Incident management units should prioritize rapid clearance during minor precipitation ($0\text{--}10\text{ mm}$), where collision-induced delays spike exponentially above network norms[cite: 1].
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
         <!-- Asset 5: Power BI Placeholder Section -->
